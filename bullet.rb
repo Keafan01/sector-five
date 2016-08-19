@@ -18,4 +18,12 @@ attr_reader :x, :y, :radius
 	def draw
 		@image.draw(@x - @radius, @y - @radius, 1)
 	end
+
+  def onscreen?
+    right = @window.width + @radius
+    left = -@radius
+    top = -@radius
+    bottom = @window.height + @radius
+    @x > left and @x < right and @y > top and @y < bottom
+  end
 end
